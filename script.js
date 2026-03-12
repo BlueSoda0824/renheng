@@ -12,7 +12,7 @@ if(busy) return
 busy = true
 
 // 手移动到眼睛
-hand.style.transform = "translate(40px,-30px)"
+hand.style.transform = "translate(calc(-50% + 40px), calc(-50% - 30px))"
 
 await sleep(300)
 
@@ -26,7 +26,7 @@ scoreUI.textContent = "本次已为"+score+"只布菇单画上眼影！"
 await sleep(400)
 
 // 手收回
-hand.style.transform = "translate(0px,0px)"
+hand.style.transform = "translate(-50%, -50%)"
 
 await sleep(300)
 
