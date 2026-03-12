@@ -55,7 +55,7 @@ body{
   #hand{
     position:absolute;
     left:50%;
-    top:calc(50% - 50px);
+    top:calc(50% - 100px); /* 手机的高度 */
     transform:translate(-50%,-50%);
     width:80%;
     height:80%;
