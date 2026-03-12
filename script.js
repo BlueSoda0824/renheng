@@ -1,50 +1,54 @@
-const body = document.getElementById("body")
-const hand = document.getElementById("hand")
-const game = document.getElementById("game")
-const scoreUI = document.getElementById("score")
+const body = document.getElementById("body");
+const hand = document.getElementById("hand");
+const game = document.getElementById("game");
+const scoreUI = document.getElementById("score");
 
-let score = 0
-let busy = false
+let score = 0;
+let busy = false;
 
 game.onclick = async () => {
+  if (busy) return;
+  busy = true;
 
-if(busy) return
-busy = true
+  // 手移动到眼睛
+  hand.style.transform = "translate(calc(-50% + 40px), calc(-50% - 30px))";
+  await sleep(300);
 
-// 手移动到眼睛
-hand.style.transform = "translate(calc(-50% + 40px), calc(-50% - 30px))"
+  // 画完眼影
+  body.src = "animal_after.png";
 
-await sleep(300)
+  // 加分
+  score++;
+  scoreUI.textContent = "本次已为" + score + "只布菇单画上眼影！";
 
-// 画完眼影
-body.src = "animal_after.png"
+  await sleep(400);
 
-// 加分
-score++
-scoreUI.textContent = "本次已为"+score+"只布菇单画上眼影！"
+  // 手收回
+  hand.style.transform = "translate(-50%, -50%)";
+  await sleep(300);
 
-await sleep(400)
+  // 手先消失
+  hand.style.opacity = "0";
+  await sleep(500);
 
-// 手收回
-hand.style.transform = "translate(-50%, -50%)"
+  // 动物再消失
+  body.style.opacity = "0";
+  await sleep(800);
 
-await sleep(300)
+  // 重置内容
+  body.src = "animal_before.png";
 
-// 淡出
-body.style.opacity = 0
-hand.style.opacity = 0
+  // 先出现动物
+  body.style.opacity = "1";
+  await sleep(300);
 
-await sleep(1000)
+  // 再出现手
+  hand.style.opacity = "1";
+  hand.style.transform = "translate(-50%, -50%)";
 
-// 重置
-body.src = "animal_before.png"
-body.style.opacity = 1
-hand.style.opacity = 1
-
-busy = false
-
-}
+  busy = false;
+};
 
 function sleep(ms){
-return new Promise(resolve=>setTimeout(resolve,ms))
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
