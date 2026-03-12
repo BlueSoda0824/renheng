@@ -1,7 +1,7 @@
 const body = document.getElementById("body")
 const hand = document.getElementById("hand")
 const game = document.getElementById("game")
-const scoreUI = document.getElementById("本次已为"+score+"只布菇单画上眼影！")
+const scoreUI = document.getElementById("score")
 
 let score = 0
 let busy = false
