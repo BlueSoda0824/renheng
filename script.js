@@ -1,40 +1,50 @@
-body{
-margin:0;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:#f5f5f5;
-font-family:sans-serif;
+const body = document.getElementById("body")
+const hand = document.getElementById("hand")
+const game = document.getElementById("game")
+const scoreUI = document.getElementById("score")
+
+let score = 0
+let busy = false
+
+game.onclick = async () => {
+
+if(busy) return
+busy = true
+
+// 手移动到眼睛
+hand.style.transform = "translate(40px,-30px)"
+
+await sleep(300)
+
+// 画完眼影
+body.src = "animal_after.png"
+
+// 加分
+score++
+scoreUI.textContent = score
+
+await sleep(400)
+
+// 手收回
+hand.style.transform = "translate(0px,0px)"
+
+await sleep(300)
+
+// 淡出
+body.style.opacity = 0
+hand.style.opacity = 0
+
+await sleep(1000)
+
+// 重置
+body.src = "animal_before.png"
+body.style.opacity = 1
+hand.style.opacity = 1
+
+busy = false
+
 }
 
-#score{
-position:fixed;
-top:20px;
-right:30px;
-font-size:30px;
-font-weight:bold;
-}
-
-.character{
-position:relative;
-width:300px;
-height:300px;
-}
-
-#body{
-width:100%;
-position:absolute;
-left:0;
-top:0;
-}
-
-#hand{
-width:100%;
-position:absolute;
-left:0;
-top:0;
-
-transform: translate(0px,0px);
-transition: transform 0.3s ease;
+function sleep(ms){
+return new Promise(resolve=>setTimeout(resolve,ms))
 }
