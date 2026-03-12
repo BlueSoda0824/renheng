@@ -32,7 +32,7 @@ await sleep(300)
 
 // 淡出
 body.style.opacity = 0
-hand.style.opacity = 0
+hand.style.opacity = 1
 
 await sleep(1000)
 
