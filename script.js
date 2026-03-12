@@ -6,38 +6,13 @@ const scoreUI = document.getElementById("score")
 let score = 0
 let busy = false
 
-// 手的初始偏移
-const HAND_BASE_X = 193
-const HAND_BASE_Y = 60
-
-// 手移动时相对初始位置的位移
-const HAND_MOVE_X = 20
-const HAND_MOVE_Y = -40
-
-// 初始位置
-const HAND_REST =
-  `translate(calc(-50% + ${HAND_BASE_X}px), calc(-50% + ${HAND_BASE_Y}px))`
-
-// 动画位置
-const HAND_TARGET =
-  `translate(calc(-50% + ${HAND_BASE_X + HAND_MOVE_X}px), calc(-50% + ${HAND_BASE_Y + HAND_MOVE_Y}px))`
-
-// 先关闭动画，直接放到初始位置
-hand.style.transition = "none"
-hand.style.transform = HAND_REST
-
-// 下一帧再恢复动画
-requestAnimationFrame(() => {
-  hand.style.transition = "transform 0.3s ease"
-})
-
 game.onclick = async () => {
 
 if(busy) return
 busy = true
 
 // 手移动到眼睛
-hand.style.transform = HAND_TARGET
+hand.style.transform = "translate(calc(-50% + 40px), calc(-50% - 30px))"
 
 await sleep(300)
 
@@ -51,7 +26,7 @@ scoreUI.textContent = "本次已为"+score+"只布菇单画上眼影！"
 await sleep(400)
 
 // 手收回
-hand.style.transform = HAND_REST
+hand.style.transform = "translate(-50%, -50%)"
 
 await sleep(300)
 
