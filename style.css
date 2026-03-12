@@ -12,10 +12,10 @@ overflow:hidden;
 #score{
 position:fixed;
 top:20px;
-right:30px;
+left:50%;
+transform:translateX(-50%);
 font-size:30px;
 font-weight:bold;
-text-align:center;
 }
 
 .character{
