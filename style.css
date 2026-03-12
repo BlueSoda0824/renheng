@@ -54,6 +54,19 @@ body{
 @media (max-width: 768px){
   #body,
   #hand{
-    top:calc(50% - 10px);
+    position:absolute;
+    left:50%;
+    top:calc(50% - 50px);
+    transform:translate(-50%,-50%);
+    width:80%;
+    height:80%;
+    object-fit:contain;
+    transition:opacity 1s ease;
   }
+  #hand{
+  transition:
+    transform 0.3s ease,
+    opacity 1s ease;   
+  pointer-events:none;
+}
 }
