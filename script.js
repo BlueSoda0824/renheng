@@ -7,11 +7,11 @@ let score = 0
 let busy = false
 
 // 手的初始偏移
-const HAND_BASE_X = 40
-const HAND_BASE_Y = 30
+const HAND_BASE_X = 90
+const HAND_BASE_Y = 80
 
 // 手移动时相对初始位置的位移
-const HAND_MOVE_X = 0
+const HAND_MOVE_X = 20
 const HAND_MOVE_Y = -60
 
 // 初始位置
