@@ -46,7 +46,14 @@ body{
 
 #hand{
   transition:
-    transform 0.3s ease，
+    transform 0.3s ease,
     opacity 1s ease;   
   pointer-events:none;
+}
+
+@media (max-width: 768px){
+  #body,
+  #hand{
+    top:calc(50% - 10px);
+  }
 }
