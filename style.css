@@ -11,9 +11,10 @@ body{
 #score{
   width:100%;
   text-align:center;
-  font-size:40px;
+  font-size:clamp(18px, 6vw, 40px);
   font-weight:bold;
-  padding:0px 0;
+  padding:10px 12px;
+  line-height:1.25;
   box-sizing:border-box;
   flex-shrink:0;
   z-index:10;
@@ -24,6 +25,7 @@ body{
   width:100%;
   position:relative;
   overflow:hidden;
+  margin-top:-10px;
 }
 
 .character{
@@ -36,14 +38,18 @@ body{
 #hand{
   position:absolute;
   left:50%;
-  top:calc(50% + 25px);
-  transform:translate(-50%,-50%);
+  top:44%;
   width:100%;
   height:100%;
   object-fit:contain;
 }
 
+#body{
+  transform:translate(-50%, -50%);
+}
+
 #hand{
-  transition:transform 0.3s ease;
+  transform:translate(calc(-50% - 120px), calc(-50% + 40px));
+  transition:transform 0.3s ease, opacity 1s ease;
   pointer-events:none;
 }
