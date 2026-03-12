@@ -13,7 +13,7 @@ body{
   text-align:center;
   font-size:40px;
   font-weight:bold;
-  padding:20px 0;
+  padding:0px 0;
   box-sizing:border-box;
   flex-shrink:0;
   z-index:10;
