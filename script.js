@@ -16,7 +16,7 @@ busy = true
 // 手移动到眼睛
 hand.style.transform = isMobile
 ? "translate(calc(-50% + 20px), calc(-50% - 15px))"
-: "translate(calc(-50% + 40px), calc(-50% - 50px))"
+: "translate(calc(-50% + 40px), calc(-50% - 45px))"
 
 await sleep(300)
 
