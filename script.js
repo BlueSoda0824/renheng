@@ -24,7 +24,7 @@ game.onclick = async () => {
   await sleep(400);
 
   // 手收回
-  hand.style.transform = "translate(-50%, -50%)";
+  hand.style.transform = HAND_REST;
   await sleep(300);
 
   // 手先消失
@@ -36,7 +36,8 @@ game.onclick = async () => {
   await sleep(800);
 
   // 重置内容
-  body.src = "animal_before.png";
+body.src = "animal_before.png";
+body.style.opacity = "1";
 
   // 先出现动物
   body.style.opacity = "1";
