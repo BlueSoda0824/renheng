@@ -37,7 +37,7 @@ body{
   position:absolute;
   left:50%;
   top:calc(50% + 25px);
-  transform:translate(-50%,-50%);
+  transform:translate(calc(-50% + 40px), calc(-50% + 40px));
   width:80%;
   height:80%;
   object-fit:contain;
