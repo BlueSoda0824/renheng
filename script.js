@@ -21,7 +21,7 @@ body.src = "animal_after.png"
 
 // 加分
 score++
-scoreUI.textContent = "本次已为" score "只布菇单画上眼影！"
+scoreUI.textContent = "本次已为"+score+"只布菇单画上眼影！"
 
 await sleep(400)
 
