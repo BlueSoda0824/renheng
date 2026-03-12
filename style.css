@@ -37,7 +37,7 @@ body{
   position:absolute;
   left:50%;
   top:calc(50% + 25px);
-  transform:translate(calc(-50% + 40px), calc(-50% + 40px));
+  transform:translate(-50%,-50%);
   width:80%;
   height:80%;
   object-fit:contain;
@@ -45,6 +45,7 @@ body{
 }
 
 #hand{
+  transform:translate(calc(-50% + 40px), calc(-50% + 40px));
   transition:
     transform 0.3s ease;   
   pointer-events:none;
