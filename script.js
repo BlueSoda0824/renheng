@@ -1,50 +1,50 @@
-const body = document.getElementById("body")
-const hand = document.getElementById("hand")
-const game = document.getElementById("game")
-const scoreUI = document.getElementById("score")
+const body = document.getElementById("body");
+const hand = document.getElementById("hand");
+const game = document.getElementById("game");
+const scoreUI = document.getElementById("score");
 
-let score = 0
-let busy = false
+let score = 0;
+let busy = false;
+
+/* 手的基础位置 */
+const HAND_OFFSET_X = -120;
+const HAND_OFFSET_Y = 40;
+
+const HAND_REST =
+  `translate(calc(-50% + ${HAND_OFFSET_X}px), calc(-50% + ${HAND_OFFSET_Y}px))`;
+
+const HAND_TARGET =
+  `translate(calc(-50% + ${HAND_OFFSET_X + 40}px), calc(-50% + ${HAND_OFFSET_Y - 30}px))`;
+
+hand.style.transform = HAND_REST;
 
 game.onclick = async () => {
+  if (busy) return;
+  busy = true;
 
-if(busy) return
-busy = true
+  hand.style.transform = HAND_TARGET;
+  await sleep(300);
 
-// 手移动到眼睛
-hand.style.transform = "translate(calc(-50% + 40px), calc(-50% - 30px))"
+  body.src = "animal_after.png";
 
-await sleep(300)
+  score++;
+  scoreUI.textContent = "本次已为" + score + "只布菇单画上眼影！";
 
-// 画完眼影
-body.src = "animal_after.png"
+  await sleep(400);
 
-// 加分
-score++
-scoreUI.textContent = "本次已为"+score+"只布菇单画上眼影！"
+  hand.style.transform = HAND_REST;
 
-await sleep(400)
+  await sleep(300);
 
-// 手收回
-hand.style.transform = "translate(-50%, -50%)"
+  body.style.opacity = 0;
+  await sleep(800);
 
-await sleep(300)
+  body.src = "animal_before.png";
+  body.style.opacity = 1;
 
-// 淡出
-body.style.opacity = 0
-hand.style.opacity = 1
-
-await sleep(1000)
-
-// 重置
-body.src = "animal_before.png"
-body.style.opacity = 1
-hand.style.opacity = 1
-
-busy = false
-
-}
+  busy = false;
+};
 
 function sleep(ms){
-return new Promise(resolve=>setTimeout(resolve,ms))
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
