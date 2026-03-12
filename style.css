@@ -21,10 +21,14 @@ font-weight:bold;
 
 .character{
 position:relative;
-width:100vw;
-height:100vh;
-padding-top:50px;   
-}
+width:100%;
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+
+padding-top:50px;
+box-sizing:border-box;
 }
 
 
