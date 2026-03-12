@@ -45,7 +45,6 @@ body{
 }
 
 #hand{
-  transform:translate(calc(-50% + 40px), calc(-50% + 40px));
   transition:
     transform 0.3s ease;   
   pointer-events:none;
